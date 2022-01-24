@@ -1,13 +1,58 @@
-body {
+/*--- Удаление всех отступов ---*/
+/*-- Звездочка, значит что мы обращаемся ко всем элементам на странице-- */
+
+
+
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  border: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*--- Меняет подсчет ширины блока так, чтобы было удобней верстать ---*/
+*,*:before,*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
+
+/*--- Убираем линии обводки у некоторых браузеров ---*/
+
+:focus, :active{outline: none;}
+a:focus, a:active{outline: none;}
+
+/*--- Перечисляем HTML5 тэги, и добавляем им значения блока, чтобы они были блочными ---*/
+
+nav, footer, header, aside{display: block;}
+
+/*--- Уравниваем поведение высоты, ширины, шрифтов и тд. для разных браузеров. 
+Также запрещает увелечение текста какими либо сторонними эмуляторами или девайсами ---*/
+html, body {
+  /*height: 100%;*/
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/*--- Обращайемся к тегам, которые используются внутри формы, и заставляем их наследовать стили шрифтов ---*/
+
+input, textarea, button{font-family: inherit;}
+
+/*--- Убирают некоторые элементы и декораторы этих элементов во всех браузерах ---*/
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0;border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li {list-style: none;}
+img{vertical-align: top;}
+
+
+/*--- Обнуляем заголовки ---*/
+
+h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}

@@ -1,0 +1,13 @@
+@import "../../variables";
+
+.title {
+  word-break: break-word;
+}
+
+.editModeInput {
+  flex: 0 0 85%;
+  background: $color1;
+  border: none;
+  margin: 0;
+  padding: 10px;
+}

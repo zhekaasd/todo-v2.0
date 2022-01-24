@@ -1,0 +1,57 @@
+@import "../../variables";
+
+.taskItem {
+  display: flex;
+  margin: 5px 0;
+  border-bottom: 1px solid $priority-color-default;
+  align-items: center;
+  padding: 10px 10px;
+  justify-content: space-between;
+
+  .taskGroupItem {
+    display: flex;
+    flex: 0 0 85%;
+    align-items: center;
+
+    & input {
+      margin-right: 10px;
+    }
+  }
+
+  p {
+    margin: 0 10px;
+  }
+
+  .hophop {
+    background: greenyellow;
+    width: 8px;
+    height: 8px;
+    cursor: pointer;
+    margin: 2px;
+  }
+}
+
+
+.isDone {
+  @extend .taskItem;
+  opacity: .35;
+
+  p {
+    margin: 0 10px;
+  }
+}
+
+.taskItemLow {
+  @extend .taskItem;
+  border-color: $priority-color-low;
+}
+
+.taskItemMiddle{
+  @extend .taskItem;
+  border-color: $priority-color-middle;
+}
+
+.taskItemHigh {
+  @extend .taskItem;
+  border-color: $priority-color-high;
+}

@@ -1,0 +1,31 @@
+@import "../../variables";
+
+.addItemForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+
+  .error {
+    border: 1px solid #d32f2f;
+  }
+
+  .errorMessage {
+    color: #d32f2f;
+    font-weight: bold;
+    margin: 0 10px;
+  }
+
+  .customInput {
+    width: 75%;
+    & input {
+      padding-left: 6px;
+
+      &::placeholder {
+        color: $text-color;
+        font-size: 12px;
+      }
+    }
+  }
+
+}
