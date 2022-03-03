@@ -26,7 +26,7 @@ const customThemeInput = createTheme({
         primary: {
             main: '#4A6163',
         }
-    }
+    },
 });
 
 

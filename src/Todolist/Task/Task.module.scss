@@ -3,9 +3,9 @@
 .taskItem {
   display: flex;
   margin: 5px 0;
-  border-bottom: 1px solid $priority-color-default;
+  border-bottom: 3px solid $priority-color-default;
   align-items: center;
-  padding: 10px 10px;
+  padding: 6px 10px;
   justify-content: space-between;
 
   .taskGroupItem {

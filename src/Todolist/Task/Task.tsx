@@ -1,9 +1,9 @@
 import styles from "./Task.module.scss";
 import React, {useState} from "react";
 import {TaskType} from "../../App";
-import EditableSpan from "../../Components/EditableSpan/EditableSpan";
 import {Checkbox, createTheme, IconButton, ThemeProvider} from "@mui/material";
 import ClearIcon from '@mui/icons-material/Clear';
+import EditableSpan from "../../Components/EditableSpan/EditableSpan";
 
 type TaskPropsType = {
     t: TaskType
@@ -24,11 +24,10 @@ const customThemeCheckbox = createTheme({
 
 const Task: React.FC<TaskPropsType> = ({t, id, removeTask, changedCheckbox, changeTaskTitle}) => {
 
-
+    let [editMode, setEditMode] = useState<boolean>(false);
 
     const onClickHandler = () => {
-        // removeTask(id, t.id);
-        setEdt(true);
+        removeTask(id, t.id);
     }
 
     const onChangeHandler = () => {
@@ -50,7 +49,7 @@ const Task: React.FC<TaskPropsType> = ({t, id, removeTask, changedCheckbox, chan
 
 
 
-    return <li className={ t.isDone ? styles.isDone + ' ' + setClass(t.priority) : setClass(t.priority) } key={t.id}>
+    return <li onBlur={() => setEditMode(false)} onDoubleClick={() => setEditMode(true)} className={ t.isDone ? styles.isDone + ' ' + setClass(t.priority) : setClass(t.priority) } key={t.id}>
         <div className={styles.taskGroupItem}>
             <ThemeProvider theme={customThemeCheckbox} >
                 <Checkbox color={'primary'} checked={t.isDone} onChange={onChangeHandler} />
@@ -59,22 +58,13 @@ const Task: React.FC<TaskPropsType> = ({t, id, removeTask, changedCheckbox, chan
         </div>
         {/*<img style={{flex: "0 0 15%"}} onClick={onClickHandler} src="#" alt="icon"/>*/}
 
-        {
-            edt ? <div style={{display: "flex", flex: "0 0 15%", flexDirection: "column"}}>
-                <span style={{display: "flex", justifyContent: "flex-end"}}>
-                    <div onClick={() => setEdt(false)} className={styles.hophop}></div>
-                    <div className={styles.hophop}></div>
-                </span>
-                <span style={{display: "flex", justifyContent: "flex-end"}}>
-                    <div className={styles.hophop}></div>
-                    <div className={styles.hophop}></div>
-                </span>
-            </div> :
-                <IconButton style={{flex: "0 0 10%"}} onClick={onClickHandler}>
-                    <ClearIcon />
-                </IconButton>
+        <IconButton style={{flex: "0 0 10%"}} onClick={onClickHandler}>
+            <ClearIcon />
+        </IconButton>
 
-        }
+        {/*{editMode ? <input type="checkbox"/> :  <IconButton style={{flex: "0 0 10%"}} onClick={onClickHandler}>*/}
+        {/*    <ClearIcon />*/}
+        {/*</IconButton>}*/}
 
     </li>
 }

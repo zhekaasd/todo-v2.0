@@ -30,9 +30,11 @@ const themeCustomButton = createTheme({
             main: '#4A6163'
         }
     }
-})
+});
 
 const Todolist = (props: TodolistPropsType) => {
+
+    debugger
 
     const onAllFilterClickHandler = () => {
         props.setFilter(props.id ,'all');
@@ -78,13 +80,15 @@ const Todolist = (props: TodolistPropsType) => {
                 }
             </ul>
 
-            <div className={styles.sortBlock}>
-                <ThemeProvider theme={themeCustomButton}>
-                    <Button onClick={onAllFilterClickHandler} variant={props.filter === 'all' ? 'contained' : 'outlined'}>ALL</Button>
-                    <Button onClick={onActiveFilterClickHandler} variant={props.filter === 'active' ? 'contained' : 'outlined'}>ACTIVE</Button>
-                    <Button onClick={onCompletedFilterClickHandler} variant={props.filter === 'completed' ? 'contained' : 'outlined'}>COMPLETED</Button>
-                </ThemeProvider>
-            </div>
+            {
+                props.tasks.length > 0 ? <div className={styles.sortBlock}>
+                    <ThemeProvider theme={themeCustomButton}>
+                        <Button onClick={onAllFilterClickHandler} variant={props.filter === 'all' ? 'contained' : 'outlined'}>ALL</Button>
+                        <Button onClick={onActiveFilterClickHandler} variant={props.filter === 'active' ? 'contained' : 'outlined'}>ACTIVE</Button>
+                        <Button onClick={onCompletedFilterClickHandler} variant={props.filter === 'completed' ? 'contained' : 'outlined'}>COMPLETED</Button>
+                    </ThemeProvider>
+                </div> : ''
+            }
         </div>
     </div>
 }
