@@ -80,6 +80,7 @@ const Todolist = (props: TodolistPropsType) => {
                 }
             </ul>
 
+            {/*-- Зафиксить фильтрацию пустого массива и  --*/}
             {
                 props.tasks.length > 0 ? <div className={styles.sortBlock}>
                     <ThemeProvider theme={themeCustomButton}>
